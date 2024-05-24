@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/**
+ * 用来演示创建子进程
+ */
+
 void parent(pid_t pid) {
   printf("parent pid is: %d, child pid is: %d\n", getpid(), pid);
 }
