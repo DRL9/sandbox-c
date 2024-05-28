@@ -1,0 +1,39 @@
+# 2.8.1
+leaf_example:
+addi sp, sp, -24 # 压栈3个元素
+
+# 将旧值存入内存中
+sd x5, 16(sp)
+sd x6, 8(sp)
+sd x20, 0(sp)
+
+add x5, x10, x11 # g+h
+add x6, x12, x13 # i+j
+sub x20, x5, x6 # f=(g+h)-(i+j)
+addi x10, x20, 0 # 存入返回值
+
+# 恢复寄存器旧值
+ld x5, 16(sp)
+ld x6, 8(sp)
+ld x20, 0(sp)
+
+addi sp, sp, 24 # 出栈
+
+jalr x0, 0(x1)  # 返回
+
+
+# 2.8.2
+fact:
+addi sp,sp,-16 # 存两个变量
+sd x10,sp(8) # 参数
+sd x1,sp(0) # 返回地址
+addi x5, x10, -1
+blt x5,x0, L1 # n-1>=0
+
+addi x10, x0, 1 # return 1
+addi sp,sp,16
+jalr x0, 0(x1)
+
+L1:
+addi x10, x10, -1 # n-1
+jal x1, fact
