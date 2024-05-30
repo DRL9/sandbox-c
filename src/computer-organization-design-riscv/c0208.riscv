@@ -37,3 +37,4 @@ jalr x0, 0(x1)
 L1:
 addi x10, x10, -1 # n-1
 jal x1, fact
+

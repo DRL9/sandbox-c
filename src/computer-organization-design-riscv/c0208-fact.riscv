@@ -1,0 +1,35 @@
+	.file	"c0208.c"
+	.option nopic
+	.attribute arch, "rv64i2p1_m2p0_a2p1_f2p2_d2p2_c2p0_zicsr2p0"
+	.attribute unaligned_access, 0
+	.attribute stack_align, 16
+	.text
+	.align	1
+	.globl	fact
+	.type	fact, @function
+fact:
+	addi	sp,sp,-32 # 4 items
+	sd	ra,24(sp) # 1th 从高向低算起 24-31, 返回地址？
+	sd	s0,16(sp) # 2th  16-23
+	addi	s0,sp,32 #  fp 帧指针  0
+	sd	a0,-24(s0) # 3th   8-15 存a0， a0 是参数
+	ld	a5,-24(s0) # a5=a0
+	bgt	a5,zero,.L2
+	li	a5,1   # a5 是返回值
+	j	.L3
+.L2: # 递归
+	ld	a5,-24(s0)
+	addi	a5,a5,-1
+	mv	a0,a5
+	call	fact
+	mv	a4,a0
+	ld	a5,-24(s0)
+	mul	a5,a4,a5
+.L3:
+	mv	a0,a5
+	ld	ra,24(sp)
+	ld	s0,16(sp)
+	addi	sp,sp,32
+	jr	ra
+	.size	fact, .-fact
+	.ident	"GCC: (gc891d8dc2) 13.2.0"
