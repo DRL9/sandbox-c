@@ -1,0 +1,23 @@
+{
+    "folders": [
+        {
+            "name": "✨ root",
+            "path": "."
+        },
+        {
+            "name": "📦 how-linux-work",
+            "path": "./sub_project/how-linux-work"
+        },
+        {
+            "name": "📦 computer-organization-design-riscv",
+            "path": "./computer-organization-design-riscv"
+        },
+        {
+            "name": "📦 c-programming-v2",
+            "path": "./sub_project/c-programming-v2"
+        }
+    ],
+    "settings": {
+        "clang-format.language.c.style": "file"
+    }
+}
