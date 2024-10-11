@@ -10,7 +10,7 @@
         },
         {
             "name": "📦 computer-organization-design-riscv",
-            "path": "./computer-organization-design-riscv"
+            "path": "./sub_project/computer-organization-design-riscv"
         },
         {
             "name": "📦 c-programming-v2",
