@@ -1,0 +1,3 @@
+[submodule "sub_project/c-programming-v2-solutions"]
+	path = sub_project/c-programming-v2-solutions
+	url = git@github.com:DRL9/c-programming-v2-solutions.git
